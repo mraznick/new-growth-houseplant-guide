@@ -7,7 +7,7 @@ class User_profile(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     travel_freq = models.BooleanField
-    pets = models.booleanField
+    pets = models.BooleanField
     windows = models.CharField(max_length=50)
     # Need to figure out how to add other user model info in road map
 
