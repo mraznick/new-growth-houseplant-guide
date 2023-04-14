@@ -8,7 +8,8 @@ class User_profile(models.Model):
     email = models.CharField(max_length=50)
     travel_freq = models.BooleanField
     pets = models.BooleanField
-    windows = models.CharField(max_length=50)
+    windows = models.CharField(
+        max_length=50, default='Enter Cardinal Direction')
     # Need to figure out how to add other user model info in road map
 
     def __str__(self):
