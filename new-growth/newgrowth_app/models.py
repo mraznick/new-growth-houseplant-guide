@@ -6,6 +6,9 @@ class User_profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=4)
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
+    travel_freq = models.BooleanField
+    pets = models.BooleanField
+    windows = models.CharField(max_length=50)
     # Need to figure out how to add other user model info in road map
 
     def __str__(self):
