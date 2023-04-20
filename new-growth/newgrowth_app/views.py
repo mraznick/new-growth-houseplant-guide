@@ -59,20 +59,20 @@ class OnePlant_ViewSet(APIView):
         except:
             return Response({'error': "Sorry, something went wrong"})
 
+
+class AllPlant_ViewSet(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    def get(self):
+        try:
+            results = Plant.objects.all()
+            all_plant = PlantSerializer(results, many=True)
+            return Response(all_plant.data)
+        except:
+            return Response({'error': "Something went wrong"})
 #  FOR POST MVP - VIEWSET ALLOWING USERS TO ADD PLANTS
-# class AllPlant_ViewSet(APIView):
-#     permission_classes = [
-#         permissions.AllowAny
-#     ]
-
-#     def get(self, request):
-#         try:
-#             results = Plant.objects.all()
-#             all_plant = PlantSerializer(results, many=True)
-#             return Response(all_plant.data)
-#         except:
-#             return Response({'error': "Something went wrong"})
-
 #     def post(self, request):
 #         try:
 #             user = self.request.user
