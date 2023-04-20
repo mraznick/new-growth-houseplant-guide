@@ -19,6 +19,10 @@ from rest_framework import routers
 from newgrowth_app.views import UserProfile_ViewSet, Plant_ViewSet
 router = routers.DefaultRouter()
 
+
+router.register(r'profiles', UserProfile_ViewSet)
+router.register(r'plant', Plant_ViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
