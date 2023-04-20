@@ -6,7 +6,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework import permissions
-# from knox.models import AuthToken
+from knox.models import AuthToken
 from newgrowth_app.models import User_profile, Plant
 from newgrowth_app.serializers import User_profileSerializer, PlantSerializer
 
