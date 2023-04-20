@@ -14,15 +14,15 @@ class PlantSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PlantSerializer(serializers.BaseSerializer):
-    def to_representation(self, instance):
-        return {
-            "id": instance.id,
-            # might need to be instance.nick.name
-            "nickname": instance.nickname,
-            "latin name": instance.latin.name,
-            "img": instance.img,
-            "window preference": instance.window.pref,
-            "drought tolerance": instance.drought.tol,
-            "toxic": instance.toxic
-        }
+# class PlantSerializer(serializers.BaseSerializer):
+#     def to_representation(self, instance):
+#         return {
+#             "id": instance.id,
+#             # might need to be instance.nick.name
+#             "nickname": instance.nickname,
+#             "latin name": instance.latin.name,
+#             "img": instance.img,
+#             "window preference": instance.window.pref,
+#             "drought tolerance": instance.drought.tol,
+#             "toxic": instance.toxic
+#         }
