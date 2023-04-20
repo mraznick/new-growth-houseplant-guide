@@ -40,3 +40,24 @@ class SignupView(APIView):
             })
         except:
             return Response({"error": "Something went wrong"})
+
+
+class LoginView(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    def post(self, request):
+        data = self.request.data
+        username = data["username"]
+        password = data["password"]
+        try:
+            user = auth.authenticate(username=username, password=password)
+            if user is not None:
+                auth.login(request, user)
+                return Response({"success": "User Authenticated",
+                                "token": AuthToken.objects.create(user)[1]})
+            else:
+                return Response({"error": "Error Authenticating"})
+        except:
+            return Response({"error": "Something went wrong while logging in"})
