@@ -61,3 +61,17 @@ class LoginView(APIView):
                 return Response({"error": "Error Authenticating"})
         except:
             return Response({"error": "Something went wrong while logging in"})
+
+
+class GrabProfile(APIView):
+    def get(self, request):
+        try:
+            user = self.request.user
+            profile = User_profile.objects.get(user=user)
+            profile_json = User_profileSerializer(profile)
+            plants = Plant.objects.filter(user=plants.id)
+            plants_json = PlantSerializer(plants, many=True)
+            return Response({"profile": profile_json.data, "plants": plants_json.data})
+        except Exception as e:
+            print(e)
+            return Response({"error": "No user profile found."})
