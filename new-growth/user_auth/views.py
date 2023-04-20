@@ -9,3 +9,34 @@ from rest_framework import permissions
 # from knox.models import AuthToken
 from newgrowth_app.models import User_profile, Plant
 from newgrowth_app.serializers import User_profileSerializer, PlantSerializer
+
+
+class SignupView(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    def get(self, request):
+        result = User.objects.all()
+        all_users = UserSerializer(result, many=True)
+        return Response(all_users.data)
+
+    def post(self, request):
+        data = self.request.data
+        name = data["name"]
+        email = data["email"]
+        password = data["password"]
+        re_password = data["re_password"]
+        try:
+            user = User.objects.create_user(
+                name=name, password=password
+            )
+            User_profile.objects.create(
+                user=user, email=email, name=name
+            )
+            return Response({
+                "success": "Sign up successful",
+                # "token": AuthToken.objects.create(user)[1]
+            })
+        except:
+            return Response({"error": "Something went wrong"})
