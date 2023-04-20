@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'newgrowth_app',
     'user_auth',
     'rest_framework',
-    'knox'
 ]
 
 MIDDLEWARE = [
