@@ -27,16 +27,17 @@ class SignupView(APIView):
         password = data["password"]
         re_password = data["re_password"]
         try:
-            user = User.objects.create_user(
-                name=name, password=password
-            )
-            User_profile.objects.create(
-                user=user, email=email, name=name
-            )
-            return Response({
-                "success": "Sign up successful",
-                "token": AuthToken.objects.create(user)[1]
-            })
+            if password == re_password:
+                user = User.objects.create_user(
+                    name=name, password=password
+                )
+                User_profile.objects.create(
+                    user=user, email=email, name=name
+                )
+                return Response({
+                    "success": "Sign up successful",
+                    "token": AuthToken.objects.create(user)[1]
+                })
         except:
             return Response({"error": "Something went wrong"})
 
