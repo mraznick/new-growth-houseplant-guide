@@ -21,7 +21,7 @@ router = routers.DefaultRouter()
 
 
 router.register(r'profiles', UserProfile_ViewSet)
-router.register(r'plant', Plant_ViewSet)
+router.register(r'plants', Plant_ViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
