@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from django.contrib import auth
-from django.shortcuts import render
 from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework import permissions
@@ -36,7 +35,7 @@ class SignupView(APIView):
             )
             return Response({
                 "success": "Sign up successful",
-                # "token": AuthToken.objects.create(user)[1]
+                "token": AuthToken.objects.create(user)[1]
             })
         except:
             return Response({"error": "Something went wrong"})
