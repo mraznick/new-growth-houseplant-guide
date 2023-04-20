@@ -22,17 +22,17 @@ class SignupView(APIView):
 
     def post(self, request):
         data = self.request.data
-        name = data["name"]
+        username = data["username"]
         email = data["email"]
         password = data["password"]
         re_password = data["re_password"]
         try:
             if password == re_password:
                 user = User.objects.create_user(
-                    name=name, password=password
+                    username=username, password=password
                 )
                 User_profile.objects.create(
-                    user=user, email=email, name=name
+                    user=user, email=email, name=username
                 )
                 return Response({
                     "success": "Sign up successful",

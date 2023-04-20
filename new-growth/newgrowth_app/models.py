@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class User_profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=4)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     travel_freq = models.BooleanField(('Travels Frequently'), default=False)
