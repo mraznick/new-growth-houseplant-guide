@@ -1,1 +1,1 @@
-web: gunicorn new-growth.wsgi
+web: gunicorn newgrowth.wsgi
