@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-m@st4glqy+)wz^p6!v5^kh7-5r^xi57yt$_%_i1c5%dh-hgrpn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'newgrowth.netlify.app']
+ALLOWED_HOSTS = ['localhost', 'newgrowth-backend.herokuapp.com']
 
 
 # Application definition
