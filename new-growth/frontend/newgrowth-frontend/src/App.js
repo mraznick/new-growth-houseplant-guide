@@ -19,6 +19,10 @@ export default function App() {
   return (
     <div className="newgrowth">
       <h1>Welcome to New Growth</h1>
+      <h2>Having trouble keeping your houseplants alive?</h2>
+      <h2>Find plants that fit your lifestyle!</h2>
+      <h5>Click here to get started</h5>
+      <h5>Already have an account? Click here to login!</h5>
       {/* <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Signup setUser={setUser} />} />
